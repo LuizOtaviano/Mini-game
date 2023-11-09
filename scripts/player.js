@@ -23,7 +23,6 @@ class Player {
   createPlayer() {
     let player = document.createElement("div")
     player.setAttribute("id", this.id)
-    player.setAttribute("name", this.nome)
     let estilo =
       `width: ${this.wp}px;` +
       `height: ${this.hp}px;` +
