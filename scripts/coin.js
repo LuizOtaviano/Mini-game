@@ -30,6 +30,19 @@ class Coin {
     campo.appendChild(coin)
   }
 
+  static delete() {
+    arrayCoin = arrayCoin.filter(el => {
+      if (el.x < campo.clientWidth ||
+        el.y < campo.clientHeight ||
+        el.x > 0 || el.y > 0) {
+          return el
+        } else {
+          console.log(el)
+          el.eu.remove()
+        }
+    })
+  }
+
   coletar() {
     console.log(arrayCoin)
     arrayCoin = arrayCoin.filter(el => {

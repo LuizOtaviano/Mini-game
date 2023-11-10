@@ -1,6 +1,8 @@
 import { Coin, arrayCoin } from "./coin.js"
 
 const campo = document.querySelector("#campo")
+let pointsP1 = document.querySelector(".playerPointsP1")
+let pointsP2 = document.querySelector(".playerPointsP2")
 let playerX = 0
 let playerY = 0
 let widthMax = 0
@@ -17,7 +19,14 @@ class Player {
     this.createPlayer()
     this.eu = document.getElementById(this.id)
     this.key = key
+    this.poins = 0
+    this.win = 10
     this.move()
+  }
+
+  rezise() {
+    this.x = Math.floor(Math.random() * (campo.clientWidth - this.wp))
+    this.y = Math.floor(Math.random() * (campo.clientHeight - this.hp))
   }
 
   createPlayer() {
@@ -57,8 +66,8 @@ class Player {
   updatePlayerPosition(keysPressed) {
     playerX = parseInt(this.eu.style.left)
     playerY = parseInt(this.eu.style.top)
-    widthMax = campo.clientWidth - 20
-    heightMax = campo.clientHeight - 20
+    widthMax = campo.clientWidth - 25
+    heightMax = campo.clientHeight - 25
 
     let step = 10
 
@@ -87,6 +96,17 @@ class Player {
         pp.bottom > pc.top &&
         pp.top < pc.bottom
       ) {
+        this.poins += 1
+        if (pointsP1.classList.contains(this.id)) {
+          pointsP1.innerHTML = this.poins
+        } else if (pointsP2.classList.contains(this.id)) {
+          pointsP2.innerHTML = this.poins
+        }
+        if(this.poins >= this.win) {
+          setTimeout(() => {
+            alert(`${this.id} Venceu!!!`)
+          }, 1000)
+        }
         el.coletar()
       }
     })

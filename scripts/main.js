@@ -7,6 +7,12 @@ let nomeP1 = document.querySelector("#inomep1")
 let corP1 = document.querySelector("#icolorp1")
 let nomeP2 = document.querySelector("#inomep2")
 let corP2 = document.querySelector("#icolorp2")
+let pointsP1 = document.querySelector(".playerPointsP1")
+let pointsP2 = document.querySelector(".playerPointsP2")
+
+window.addEventListener("resize", () => {
+  Coin.delete()
+})
 
 function StartGame(namePlayer1, corPlayer1, namePlayer2, corPlayer2) {
 
@@ -14,8 +20,11 @@ function StartGame(namePlayer1, corPlayer1, namePlayer2, corPlayer2) {
     arrayCoin.push(new Coin)
   }
 
-  let keyP1 = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
-  let keyP2 = ["KeyW", "KeyS", "KeyA", "KeyD"]
+  let keyP1 = ["KeyW", "KeyS", "KeyA", "KeyD"]
+  let keyP2 = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+
+  pointsP1.classList.add(namePlayer1)
+  pointsP2.classList.add(namePlayer2)
   
   let p1 = new Player(namePlayer1, corPlayer1, keyP1)
   let p2 = new Player(namePlayer2, corPlayer2, keyP2)
