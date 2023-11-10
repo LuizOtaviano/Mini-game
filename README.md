@@ -1,1 +1,3 @@
 # Mini-game
+
+O projeto está em desenvolvimento...
