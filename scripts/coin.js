@@ -16,6 +16,7 @@ class Coin {
   create() {
     let coin = document.createElement("div")
     coin.setAttribute("id", this.id)
+    coin.setAttribute("class", "coin")
 
     let styleCoin =
       `position: absolute;` +
@@ -31,27 +32,40 @@ class Coin {
   }
 
   static delete() {
-    arrayCoin = arrayCoin.filter(el => {
-      if (el.x < campo.clientWidth ||
-        el.y < campo.clientHeight ||
-        el.x > 0 || el.y > 0) {
-          return el
-        } else {
-          console.log(el)
-          el.eu.remove()
+
+    let getAllCoin = [...document.querySelectorAll(".coin")]
+    let campo = document.querySelector("#campo")
+    
+    getAllCoin.map(el => {
+      let coin = el.getBoundingClientRect()
+
+      if (
+        coin.left > campo.clientWidth ||
+        coin.left < 0 ||
+        coin.top > campo.clientHeight ||
+        coin.top < 0
+        ) {
+          campo.removeChild(el)
+          arrayCoin = arrayCoin.filter(coin => {
+            if (coin.id != el.id) {
+              return coin
+            }
+          })
         }
     })
   }
 
   coletar() {
-    console.log(arrayCoin)
     arrayCoin = arrayCoin.filter(el => {
       if (el.id != this.eu.id) {
         return el
       }
     })
     this.eu.remove()
-    console.log(arrayCoin)
+  }
+
+  static resetCoin() {
+    arrayCoin = []
   }
 }
 

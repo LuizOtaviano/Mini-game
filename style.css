@@ -16,6 +16,12 @@ body {
   align-items: center;
 }
 
+#regra {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
 
 #login {
   width: 100vw;
@@ -26,6 +32,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 11;
 }
 
 .playerConfig {
@@ -55,7 +62,7 @@ div.campos > input[type="color"] {
 #btnStart {
   margin-top: 15px;
   border: none;
-  width: 250px;
+  width: 245px;
   padding: 15px;
   font-weight: bold;
   font-size: 30px;
@@ -65,7 +72,6 @@ div.campos > input[type="color"] {
 
 #btnStart:hover {
   background-color: greenyellow;
-  color: white;
   border-radius: 30px;
 }
 
@@ -83,6 +89,7 @@ div.campos > input[type="color"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: 5px solid black;
 }
 
@@ -93,7 +100,7 @@ div.status > div.playerInfos {
   margin-top: 10px;
 }
 
-.playerInfos > div#scorePlayerP1 {
+.playerInfos > div#corStatusPlayerP1 {
   width: 30px;
   height: 30px;
   background-color: blue;
@@ -105,11 +112,51 @@ div.status > div.playerInfos {
   font-weight: bolder;
 }
 
-.playerInfos > div#scorePlayerP2 {
+.playerInfos > div#corStatusPlayerP2 {
   width: 30px;
   height: 30px;
   background-color: red;
   margin-right: 10px;
+}
+
+#win {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.904);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+#content {
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#btnWin {
+  padding: 20px;
+  width: 80%;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  border-radius: 20px;
+  z-index: 11;
+}
+
+#btnWin:hover {
+  background-color: lightblue;
+  transition: all 1s;
 }
 
 #campo {
@@ -118,4 +165,3 @@ div.status > div.playerInfos {
   border: 5px solid black;
   position: relative;
 }
-

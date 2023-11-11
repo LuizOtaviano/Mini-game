@@ -1,8 +1,10 @@
 import { Coin, arrayCoin } from "./coin.js"
 
-const campo = document.querySelector("#campo")
+let campo = document.querySelector("#campo")
 let pointsP1 = document.querySelector(".playerPointsP1")
 let pointsP2 = document.querySelector(".playerPointsP2")
+let telawin = document.querySelector("#win")
+let winPlayer = document.querySelector("#winPlayer")
 let playerX = 0
 let playerY = 0
 let widthMax = 0
@@ -25,8 +27,20 @@ class Player {
   }
 
   rezise() {
+    // Se a tela for modificada muda os players para uma nova
+    // Posião aleatoria dentro do campo
+    campo = document.querySelector("#campo")
     this.x = Math.floor(Math.random() * (campo.clientWidth - this.wp))
     this.y = Math.floor(Math.random() * (campo.clientHeight - this.hp))
+
+    let estilo =
+      `width: ${this.wp}px;` +
+      `height: ${this.hp}px;` +
+      `background-color: ${this.color};` +
+      `position: absolute;` +
+      `left: ${this.x}px;` +
+      `top: ${this.y}px;`
+    this.eu.setAttribute("style", estilo)
   }
 
   createPlayer() {
@@ -104,12 +118,19 @@ class Player {
         }
         if(this.poins >= this.win) {
           setTimeout(() => {
-            alert(`${this.id} Venceu!!!`)
-          }, 1000)
+            telawin.style.display = "flex"
+            winPlayer.innerHTML = `${this.id}<br>Venceu!`
+          }, 200)
         }
         el.coletar()
       }
     })
+  }
+
+  static resetPoints() {
+    this.poins = 0
+    pointsP1.innerHTML = 0
+    pointsP2.innerHTML = 0
   }
 }
 
