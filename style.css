@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#regra {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#login {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.712);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 11;
+}
+
+.playerConfig {
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.playerConfig > div.campos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.campos > input {
+  z-index: 10;
+}
+
+div.campos > input[type="text"] {
+  padding: 10px;
+}
+
+div.campos > input[type="color"] {
+  height: 37.8px;
+}
+
+#btnStart {
+  margin-top: 15px;
+  border: none;
+  width: 245px;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 30px;
+  z-index: 10;
+  transition: all 1s ease;
+}
+
+#btnStart:hover {
+  background-color: greenyellow;
+  border-radius: 30px;
+}
+
+#points {
+  width: 80%;
+  min-height: 10%;
+  margin-bottom: 10px;
+  display: flex;
+
+}
+
+#points > div.status {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+}
+
+div.status > div.playerInfos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.playerInfos > div#corStatusPlayerP1 {
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  margin-right: 10px;
+}
+
+.status > div.playerPoints {
+  font-size: max(2.5em);
+  font-weight: bolder;
+}
+
+.playerInfos > div#corStatusPlayerP2 {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  margin-right: 10px;
+}
+
+#win {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.904);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+#content {
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#btnWin {
+  padding: 20px;
+  width: 80%;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  border-radius: 20px;
+  z-index: 11;
+}
+
+#btnWin:hover {
+  background-color: lightblue;
+  transition: all 1s;
+}
+
+#campo {
+  width: 80%;
+  height: 80%;
+  border: 5px solid black;
+  position: relative;
+}
